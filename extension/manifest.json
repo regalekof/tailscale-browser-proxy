@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Tailscale Browser Proxy",
+  "version": "0.1.0",
+  "minimum_chrome_version": "110",
+  "description": "Switch browser web traffic between your Tailscale-reachable HTTP or SOCKS5 proxies.",
+  "permissions": ["proxy", "storage"],
+  "optional_host_permissions": ["https://api.ipify.org/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": { "default_popup": "popup.html", "default_title": "Tailscale Browser Proxy" },
+  "incognito": "not_allowed"
+}

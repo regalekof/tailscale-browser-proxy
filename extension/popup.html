@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailscale Browser Proxy</title>
+  <link rel="stylesheet" href="popup.css">
+  <script type="module" src="popup.js"></script>
+</head>
+<body>
+  <header><span class="mark" aria-hidden="true">↗</span><div><h1>Browser Proxy</h1><p>Connect through your Tailscale devices</p></div></header>
+  <main>
+    <section class="connection" aria-labelledby="connection-title">
+      <div class="eyebrow">THIS BROWSER PROFILE</div>
+      <h2 id="connection-title">Reading settings…</h2>
+      <p id="connection-detail">Checking the browser’s current proxy configuration.</p>
+      <button id="restore" type="button" class="secondary">Restore browser defaults</button>
+    </section>
+    <div class="section-heading"><h2>Your proxies</h2><button id="refresh" type="button" class="text-button">Refresh</button></div>
+    <div id="profiles"></div>
+    <details id="add-panel" open>
+      <summary>Add a proxy</summary>
+      <form id="add-form">
+        <label>Name<input name="name" required maxlength="60" placeholder="Home connection"></label>
+        <div class="columns"><label>Protocol<select name="scheme"><option value="socks5">SOCKS5</option><option value="http">HTTP</option></select></label><label>Port<input name="port" required type="number" min="1" max="65535" value="1080"></label></div>
+        <label>Proxy address<input name="host" required placeholder="127.0.0.1 or 100.x.x.x" spellcheck="false" autocomplete="off"></label>
+        <p class="hint">Use an existing proxy on your tailnet, or a local SSH SOCKS5 tunnel. A Tailscale exit node alone is not a proxy.</p>
+        <button type="submit">Save proxy</button>
+      </form>
+    </details>
+    <section class="ip-check"><button id="check" type="button" class="secondary">Check public IPv4</button><p id="ip-result">Optional: contacts api.ipify.org through this browser.</p></section>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <footer>Routes web requests in this profile. Incognito is excluded. This is not a full VPN or a WebRTC/DNS leak blocker.</footer>
+  </main>
+</body>
+</html>

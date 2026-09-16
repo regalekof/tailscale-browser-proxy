@@ -1,0 +1,9 @@
+{
+  "name": "tailscale-browser-proxy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Switch Chrome or Edge web traffic between proxies reachable through Tailscale",
+  "scripts": { "test": "node --test tests/*.test.js" },
+  "engines": { "node": ">=20" }
+}
