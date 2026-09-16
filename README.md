@@ -5,6 +5,7 @@ A Manifest V3 extension for switching **Chrome or Edge web requests** between HT
 **A Tailscale device is not automatically a proxy.** Supply an existing proxy endpoint, or create a local SOCKS5 tunnel over SSH to a device on your tailnet. The browser uses that device's outbound connection. Different devices on the same internet connection may show the same public IP.
 
 Independent community project; not affiliated with or endorsed by Tailscale.
+
 <img width="410" height="607" alt="image" src="https://github.com/user-attachments/assets/73b86c90-cb67-4804-8fc1-7a17448ecca9" />
 
 
